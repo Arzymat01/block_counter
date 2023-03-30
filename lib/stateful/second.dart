@@ -22,9 +22,20 @@ class _SecondPageState extends State<SecondPage> {
         title: const Text('SecondPage'),
       ),
       body: Center(
-        child: Text(
-          '${widget.san}',
-          style: Theme.of(context).textTheme.headlineMedium,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '${widget.san}',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context, widget.san);
+              },
+              child: const Text('Назад'),
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(

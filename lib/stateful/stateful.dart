@@ -52,13 +52,18 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => SecondPage(
-                              san: _counter,
-                            )));
+              onPressed: () async {
+                final data = await Navigator.push<int>(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SecondPage(
+                      san: _counter,
+                    ),
+                  ),
+                );
+                setState(() {
+                  _counter = data ?? 0;
+                });
               },
               child: const Text('SecondPage'),
             )
